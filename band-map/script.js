@@ -11,47 +11,77 @@ const map = new mapboxgl.Map({
     zoom: 2
 });
 
-let markers = [];
+// Store marker DOM elements here (their corresponding Mapbox Marker objects are already on the map)
+let markerEls = [];
 
-// Function to render markers up to selected index
-function renderMarkers(index) {
-    // Remove previous markers
-    markers.forEach(m => m.remove());
-    markers = [];
+// Create all markers at once (hidden initially)
+bandEvents.forEach((event, index) => {
+    // const el = document.createElement("div");
+    // el.className = "event-marker";
 
-    for (let i = 0; i <= index; i++) {
-        const ev = bandEvents[i];
-        const color = ev.type === 'breakup' ? 'red' : 'blue';
+    // el.style.backgroundColor =
+    //     event.type === "breakup" ? "red" : "blue";
 
-        const el = document.createElement('div');
-        el.style.width = '12px';
-        el.style.height = '12px';
-        el.style.borderRadius = '50%';
-        el.style.backgroundColor = color;
+    // // start fully transparent
+    // el.style.opacity = 0; 
+    // // smooth fade for opacity changes
+    // el.style.transition = "opacity 1000ms ease"; 
 
-        const marker = new mapboxgl.Marker(el)
-            .setLngLat([ev.lon, ev.lat])
-            .setPopup(new mapboxgl.Popup().setText(`${ev.date}: ${ev.description}`))
-            .addTo(map);
+    const el = document.createElement("img");
+    el.src = bandLogo; 
+    el.className = "event-marker";
 
-        markers.push(marker);
+    el.style.opacity = 0;          
+    el.style.transition = "opacity 1s ease";
+    el.style.cursor = "pointer";
+
+    // create and add marker to the map (we keep the element reference)
+    new mapboxgl.Marker(el)
+        .setLngLat([event.lon, event.lat])
+        .setPopup(new mapboxgl.Popup().setHTML(
+        `<strong>${event.date}</strong><br>${event.description}`
+        ))
+        .addTo(map);
+
+    markerEls.push(el);
+});
+
+// Unified update function: fade previous out, fade new in
+let lastIndex = null;
+function renderMarkers(i) {
+    // Fade out previous marker
+    if (lastIndex !== null) {
+        markerEls[lastIndex].style.opacity = 0;
+        markerEls[lastIndex].style.pointerEvents = "none"; // disable clicks
     }
-}
 
-// Initialize first marker
-renderMarkers(0);
+    // Fade in current marker
+    markerEls[i].style.opacity = 1;
+    markerEls[i].style.pointerEvents = "auto"; // enable clicks
+
+    lastIndex = i;
+}
 
 // Timeline slider logic
 const slider = document.getElementById('timeline');
 slider.max = bandEvents.length - 1;
-slider.addEventListener('input', (e) => {
-    renderMarkers(parseInt(e.target.value));
+slider.addEventListener('input', () => {
+    renderMarkers(parseInt(slider.value));
 });
+// Initialize first marker visible
+if (bandEvents.length > 0) {
+  renderMarkers(0);
+  slider.value = 0;
+}
 
-// Optional: auto-play animation
+// Auto-play animation
 let current = 0;
-setInterval(() => {
-    current = (current + 1) % bandEvents.length;
-    slider.value = current;
-    renderMarkers(current);
-}, 2000);
+const autoplayIntervalMs = 2000;
+const autoplay = setInterval(() => {
+  current = (current + 1) % bandEvents.length;
+  slider.value = current;
+  renderMarkers(current);
+}, autoplayIntervalMs);
+// stop autoplay when user interacts with slider
+slider.addEventListener('mousedown', () => clearInterval(autoplay));
+slider.addEventListener('touchstart', () => clearInterval(autoplay));
