@@ -28,7 +28,7 @@ bandEvents.forEach((event, index) => {
     // el.style.transition = "opacity 1000ms ease"; 
 
     const el = document.createElement("img");
-    el.src = "assets/logo.png";   // adjust path if needed
+    el.src = bandLogo; 
     el.className = "event-marker";
 
     el.style.opacity = 0;          

@@ -3,3 +3,12 @@
 min=0, max=2 corresponds to the index of your three events.
 
 el.style.transition is the duration of fading
+
+data structure:
+a band has 
+- logo (static)
+- a list of events
+
+an event has:
+- time, location blahblahblah
+- members (optional)

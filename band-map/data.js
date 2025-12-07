@@ -1,10 +1,21 @@
+const bandLogo = "assets/logos/Deep Purple.png";
+
 const bandEvents = [
     {
         date: "1965-08-15",
         lat: 40.7128,
         lon: -74.0060,
         type: "tour",
-        description: "First US tour - NYC"
+        description: "First US tour - NYC",
+        
+        members: [
+        { photo: "assets/members/David.jpeg" },
+        { photo: "assets/members/Ian.jpeg" },
+        { photo: "assets/members/Jon.jpeg" },
+        { photo: "assets/members/Paice.jpeg" },
+        { photo: "assets/members/Ritchie.jpeg" },
+        { photo: "assets/members/Roger.jpeg" }
+        ]
     },
     {
         date: "1971-11-05",
@@ -21,3 +32,10 @@ const bandEvents = [
         description: "Temporary band hiatus"
     }
 ];
+
+// extract member names from the image names
+bandEvents.forEach(event => {
+    event.members?.forEach(m => {
+        m.name = m.photo.split("/").pop().split(".")[0];
+    });
+});
