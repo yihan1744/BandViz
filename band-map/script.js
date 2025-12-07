@@ -40,34 +40,29 @@ bandEvents.forEach((event, index) => {
 
 // Unified update function: fade previous out, fade new in
 let lastIndex = null;
-function showIndex(i) {
-  if (i < 0 || i >= markerEls.length) return;
+function renderMarkers(i) {
+    // Fade out previous marker
+    if (lastIndex !== null) {
+        markerEls[lastIndex].style.opacity = 0;
+        markerEls[lastIndex].style.pointerEvents = "none"; // disable clicks
+    }
 
-  // If the same index, do nothing
-  if (lastIndex === i) return;
+    // Fade in current marker
+    markerEls[i].style.opacity = 1;
+    markerEls[i].style.pointerEvents = "auto"; // enable clicks
 
-  // Fade out previous (if any)
-  if (lastIndex !== null) {
-    // keep it visible for a short moment so fades overlap nicely
-    markerEls[lastIndex].style.opacity = 0;
-  }
-
-  // Fade in the new one
-  markerEls[i].style.opacity = 1;
-
-  lastIndex = i;
+    lastIndex = i;
 }
 
 // Timeline slider logic
 const slider = document.getElementById('timeline');
 slider.max = bandEvents.length - 1;
 slider.addEventListener('input', () => {
-    const i = parseInt(slider.value, 10);
-    showIndex(i);
+    renderMarkers(parseInt(slider.value));
 });
 // Initialize first marker visible
 if (bandEvents.length > 0) {
-  showIndex(0);
+  renderMarkers(0);
   slider.value = 0;
 }
 
@@ -77,7 +72,7 @@ const autoplayIntervalMs = 2000;
 const autoplay = setInterval(() => {
   current = (current + 1) % bandEvents.length;
   slider.value = current;
-  showIndex(current);
+  renderMarkers(current);
 }, autoplayIntervalMs);
 // stop autoplay when user interacts with slider
 slider.addEventListener('mousedown', () => clearInterval(autoplay));
