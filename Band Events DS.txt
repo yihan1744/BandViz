@@ -1,0 +1,41 @@
+Design data structure for band events:
+
+{
+    type: "album" | "member_join" | "member_leave" | "history" | "formation" | "breakup" | "reunion",
+    date: "1977-03-21", // ISO string for both actual date or approximated date
+    precision: "day" | "month" | "year",  //Timeline slider should respect the smallest unit present, i.e. day
+    title: "Event Title",
+    description(optional): "longer text",
+    
+    location: {
+      type: "exact" | "city" | "country" | "birthplace", //birthplace must be initialised on an formation event
+      name(optional): "name (for tooltips)",
+      lat: 0.0,
+      lon: 0.0
+    },
+
+    // only for type=="album" events
+    album(optional): {
+      title: "Physical Graffiti",
+      cover: "path/to/cover.jpg",
+      musicbrainz_id: "xxxx",
+    },
+
+    // only for only for type=="member_*" events
+    //currently a member is just a name string, later add photos
+    members(optional): ["Robert Plant"],  
+}
+
+// current members of any event can be derived from previous events
+function getActiveMembers(events, index) {
+    const active = new Set();
+    for (let i = 0; i <= index; i++) {
+        const e = events[i];
+        if (e.type === "member_join") e.members?.forEach(m => active.add(m));
+        if (e.type === "member_leave") e.members?.forEach(m => active.delete(m));
+    }
+    return Array.from(active);
+}
+
+// if only name of place is known, we local lookup corrdinates
+// later we can use api to dynamically lookup the coordinates
