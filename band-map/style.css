@@ -2,3 +2,12 @@
   width: 100vw;
   height: 80vh;
 }
+
+.event-marker {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  transform: translate(-50%, -50%); /* center the marker on the coordinate */
+}

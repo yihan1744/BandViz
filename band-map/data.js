@@ -15,8 +15,8 @@ const bandEvents = [
     },
     {
         date: "1983-01-01",
-        lat: 51.5000,
-        lon: -0.1270,
+        lat: 51.5074,
+        lon: -0.1278,
         type: "breakup",
         description: "Temporary band hiatus"
     }
