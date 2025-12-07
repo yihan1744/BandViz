@@ -16,16 +16,24 @@ let markerEls = [];
 
 // Create all markers at once (hidden initially)
 bandEvents.forEach((event, index) => {
-    const el = document.createElement("div");
+    // const el = document.createElement("div");
+    // el.className = "event-marker";
+
+    // el.style.backgroundColor =
+    //     event.type === "breakup" ? "red" : "blue";
+
+    // // start fully transparent
+    // el.style.opacity = 0; 
+    // // smooth fade for opacity changes
+    // el.style.transition = "opacity 1000ms ease"; 
+
+    const el = document.createElement("img");
+    el.src = "assets/logo.png";   // adjust path if needed
     el.className = "event-marker";
 
-    el.style.backgroundColor =
-        event.type === "breakup" ? "red" : "blue";
-
-    // start fully transparent
-    el.style.opacity = 0; 
-    // smooth fade for opacity changes
-    el.style.transition = "opacity 1000ms ease"; 
+    el.style.opacity = 0;          
+    el.style.transition = "opacity 1s ease";
+    el.style.cursor = "pointer";
 
     // create and add marker to the map (we keep the element reference)
     new mapboxgl.Marker(el)
