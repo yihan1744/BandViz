@@ -1,0 +1,4 @@
+#timeline is a simple HTML slider.
+
+min=0, max=2 corresponds to the index of your three events.
+
