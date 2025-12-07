@@ -39,3 +39,18 @@ function getActiveMembers(events, index) {
 
 // if only name of place is known, we local lookup corrdinates
 // later we can use api to dynamically lookup the coordinates
+
+
+preprocessing for each event:
+
+- on time: turn approximate datas into ISO string
+
+- on location:
+lookup coordinates for named locations
+assign birthplace for missing location
+
+
+- on members: calculate current members
+
+#BUG
+problem in current scheme: some events have duration!!

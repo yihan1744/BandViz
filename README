@@ -1,8 +1,12 @@
 #timeline is a simple HTML slider.
 
+In script.js:
+
 min=0, max=2 corresponds to the index of your three events.
 
 el.style.transition is the duration of fading
+
+new mapboxgl.Marker(el) is where we pass data to UI
 
 data structure:
 a band has 

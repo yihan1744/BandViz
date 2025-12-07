@@ -37,9 +37,9 @@ bandEvents.forEach((event, index) => {
 
     // create and add marker to the map (we keep the element reference)
     new mapboxgl.Marker(el)
-        .setLngLat([event.lon, event.lat])
+        .setLngLat([event.location.lon, event.location.lat])
         .setPopup(new mapboxgl.Popup().setHTML(
-        `<strong>${event.date}</strong><br>${event.description}`
+        `<strong>${event.date}</strong><br><strong>${event.title || ""}</strong><br>${event.description || ""}`
         ))
         .addTo(map);
 
