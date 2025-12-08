@@ -1,0 +1,81 @@
+//Run with: NODE_TLS_REJECT_UNAUTHORIZED=0 node fetch_albums.mjs "Deep Purple"
+
+import fs from "fs";
+import fetch from "node-fetch"; // make sure you `npm install node-fetch`
+
+const USER_AGENT = 'BandViz/1.0 ( your-email@example.com )';
+
+async function searchArtist(name) {
+    const query = `artist:"${name}" AND type:group`;
+    const url = `https://musicbrainz.org/ws/2/artist?query=${encodeURIComponent(query)}&fmt=json`;
+    console.log("Fetching URL:", url);
+
+    const res = await fetch(url, {
+        headers: { 'User-Agent': USER_AGENT }
+    });
+    const data = await res.json();
+
+    if (!data.artists || data.artists.length === 0) return null;
+
+    return data.artists[0]; // pick the first match
+}
+
+async function fetchAlbums(mbid) {
+    const url = `https://musicbrainz.org/ws/2/release-group?artist=${mbid}&type=album&fmt=json`;
+    const res = await fetch(url, {
+        headers: { 'User-Agent': USER_AGENT }
+    });
+    const data = await res.json();
+    return data['release-groups'] || [];
+}
+
+async function fetchEarliestReleaseDate(releaseGroupId) {
+    const url = `https://musicbrainz.org/ws/2/release?release-group=${releaseGroupId}&fmt=json&limit=100`;
+    const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+    const data = await res.json();
+    const releases = data.releases || [];
+
+    // Filter out releases without a date
+    const releasesWithDate = releases.filter(r => r.date);
+
+    if (releasesWithDate.length === 0) return null;
+
+    // Find the earliest date
+    releasesWithDate.sort((a, b) => a.date.localeCompare(b.date));
+    return releasesWithDate[0].date;
+}
+
+async function main() {
+    const bandName = process.argv[2];
+    if (!bandName) {
+        console.error("Usage: node fetch_albums.mjs \"Band Name\"");
+        process.exit(1);
+    }
+
+    console.log("Searching artist:", bandName);
+    const artist = await searchArtist(bandName);
+    if (!artist) {
+        console.error("Artist not found!");
+        process.exit(1);
+    }
+
+    console.log("Artist:", artist.name, "MBID:", artist.id);
+
+    const albums = await fetchAlbums(artist.id);
+    const results = [];
+
+    for (const album of albums) {
+        const date = await fetchEarliestReleaseDate(album.id);
+        results.push({
+            title: album.title,
+            musicbrainz_id: album.id,
+            date: date
+        });
+    }
+
+    const outputPath = `./${bandName.replace(" ", "_")}_raw_albums.json`;
+    fs.writeFileSync(outputPath, JSON.stringify(results, null, 2));
+    console.log("Saved:", outputPath);
+}
+
+main();
