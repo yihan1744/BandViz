@@ -1,0 +1,452 @@
+[
+  {
+    "type": "album",
+    "date": "2017",
+    "precision": "year",
+    "title": "Infinite",
+    "description": "Infinite album released.",
+    "album": {
+      "title": "Infinite",
+      "cover": "assets/albums/Infinite.jpg",
+      "musicbrainz_id": "01f46d72-4a95-4dd8-b8f0-41b59b2a1939"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "2021",
+    "precision": "year",
+    "title": "Turning to Crime",
+    "description": "Turning to Crime album released.",
+    "album": {
+      "title": "Turning to Crime",
+      "cover": "assets/albums/TurningtoCrime.jpg",
+      "musicbrainz_id": "09e40d7f-d1ee-42b1-85fd-5a852dd21c08"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "2024",
+    "precision": "year",
+    "title": "=1",
+    "description": "=1 album released.",
+    "album": {
+      "title": "=1",
+      "cover": "assets/albums/=1.jpg",
+      "musicbrainz_id": "2b19b441-703c-4af1-8b05-fbfaaf79a41a"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1987",
+    "precision": "year",
+    "title": "The House of Blue Light",
+    "description": "The House of Blue Light album released.",
+    "album": {
+      "title": "The House of Blue Light",
+      "cover": "assets/albums/TheHouseofBlueLight.jpg",
+      "musicbrainz_id": "3627b95b-c892-3c42-bbf6-d203ef6ffe6b"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1968-10",
+    "precision": "month",
+    "title": "The Book of Taliesyn",
+    "description": "The Book of Taliesyn album released.",
+    "album": {
+      "title": "The Book of Taliesyn",
+      "cover": "assets/albums/TheBookofTaliesyn.jpg",
+      "musicbrainz_id": "3a2bbe30-d2c7-367b-9326-f0082adad661"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1984",
+    "precision": "year",
+    "title": "Perfect Strangers",
+    "description": "Perfect Strangers album released.",
+    "album": {
+      "title": "Perfect Strangers",
+      "cover": "assets/albums/PerfectStrangers.jpg",
+      "musicbrainz_id": "41a276ce-ea2b-377c-9ad8-0ef0bfd1f5c2"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1969",
+    "precision": "year",
+    "title": "The Very Best of Deep Purple",
+    "description": "The Very Best of Deep Purple album released.",
+    "album": {
+      "title": "The Very Best of Deep Purple",
+      "cover": "assets/albums/TheVeryBestofDeepPurple.jpg",
+      "musicbrainz_id": "4202aeb4-a8f5-4806-a4d5-0c91d9696267"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "2005",
+    "precision": "year",
+    "title": "Rapture of the Deep",
+    "description": "Rapture of the Deep album released.",
+    "album": {
+      "title": "Rapture of the Deep",
+      "cover": "assets/albums/RaptureoftheDeep.jpg",
+      "musicbrainz_id": "47b949bf-dc12-3b49-9f31-f1176577d7d1"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1993",
+    "precision": "year",
+    "title": "The Battle Rages On…",
+    "description": "The Battle Rages On… album released.",
+    "album": {
+      "title": "The Battle Rages On…",
+      "cover": "assets/albums/TheBattleRagesOn….jpg",
+      "musicbrainz_id": "4859ab03-71a1-3217-93ec-df15dca6e2e3"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "2013",
+    "precision": "year",
+    "title": "Now What?!",
+    "description": "Now What?! album released.",
+    "album": {
+      "title": "Now What?!",
+      "cover": "assets/albums/NowWhat?!.jpg",
+      "musicbrainz_id": "83afd89b-8746-4ff5-b1f4-aa64863de85e"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1974",
+    "precision": "year",
+    "title": "Stormbringer",
+    "description": "Stormbringer album released.",
+    "album": {
+      "title": "Stormbringer",
+      "cover": "assets/albums/Stormbringer.jpg",
+      "musicbrainz_id": "95d17f98-dfe2-36c4-b950-fcdc1bdbc279"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "2003",
+    "precision": "year",
+    "title": "Bananas",
+    "description": "Bananas album released.",
+    "album": {
+      "title": "Bananas",
+      "cover": "assets/albums/Bananas.jpg",
+      "musicbrainz_id": "b2c0f9df-aaed-3ed2-af0c-1dd53ea02498"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1971",
+    "precision": "year",
+    "title": "Fireball",
+    "description": "Fireball album released.",
+    "album": {
+      "title": "Fireball",
+      "cover": "assets/albums/Fireball.jpg",
+      "musicbrainz_id": "b9547871-240a-3ca4-97d7-9f2dfffe471c"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1969-06-21",
+    "precision": "day",
+    "title": "Deep Purple",
+    "description": "Deep Purple album released.",
+    "album": {
+      "title": "Deep Purple",
+      "cover": "assets/albums/DeepPurple.jpg",
+      "musicbrainz_id": "bacc3ccf-32aa-3103-b50c-4edaa35e6fb6"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1968-07-17",
+    "precision": "day",
+    "title": "Shades of Deep Purple",
+    "description": "Shades of Deep Purple album released.",
+    "album": {
+      "title": "Shades of Deep Purple",
+      "cover": "assets/albums/ShadesofDeepPurple.jpg",
+      "musicbrainz_id": "bdb083d6-be5e-32b3-97df-3d899a8ff858"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1998",
+    "precision": "year",
+    "title": "Abandon",
+    "description": "Abandon album released.",
+    "album": {
+      "title": "Abandon",
+      "cover": "assets/albums/Abandon.jpg",
+      "musicbrainz_id": "ca8b119f-376c-3e8c-840a-4a9e572dfa25"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1972",
+    "precision": "year",
+    "title": "Machine Head",
+    "description": "Machine Head album released.",
+    "album": {
+      "title": "Machine Head",
+      "cover": "assets/albums/MachineHead.jpg",
+      "musicbrainz_id": "d00243c5-adcf-3018-9aa7-1957d7a5a774"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1975",
+    "precision": "year",
+    "title": "Come Taste the Band",
+    "description": "Come Taste the Band album released.",
+    "album": {
+      "title": "Come Taste the Band",
+      "cover": "assets/albums/ComeTastetheBand.jpg",
+      "musicbrainz_id": "d12f085d-7861-36cd-a2fb-55a18ddc6e56"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1970",
+    "precision": "year",
+    "title": "Battle of Deep Purple & Jimi Hendrix",
+    "description": "Battle of Deep Purple & Jimi Hendrix album released.",
+    "album": {
+      "title": "Battle of Deep Purple & Jimi Hendrix",
+      "cover": "assets/albums/BattleofDeepPurple&JimiHendrix.jpg",
+      "musicbrainz_id": "d7451c1d-f369-4762-aff9-33e4c3a36361"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "2020-06-12",
+    "precision": "day",
+    "title": "Whoosh!",
+    "description": "Whoosh! album released.",
+    "album": {
+      "title": "Whoosh!",
+      "cover": "assets/albums/Whoosh!.jpg",
+      "musicbrainz_id": "dd3a44e9-8dc3-4803-8392-62452672fabe"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1974",
+    "precision": "year",
+    "title": "Burn",
+    "description": "Burn album released.",
+    "album": {
+      "title": "Burn",
+      "cover": "assets/albums/Burn.jpg",
+      "musicbrainz_id": "e8459360-b0d1-331e-a1e7-9717c962d29f"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1970",
+    "precision": "year",
+    "title": "Deep Purple in Rock",
+    "description": "Deep Purple in Rock album released.",
+    "album": {
+      "title": "Deep Purple in Rock",
+      "cover": "assets/albums/DeepPurpleinRock.jpg",
+      "musicbrainz_id": "ebdb53c3-fbae-34b1-81cb-f825c9a56822"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1996",
+    "precision": "year",
+    "title": "Purpendicular",
+    "description": "Purpendicular album released.",
+    "album": {
+      "title": "Purpendicular",
+      "cover": "assets/albums/Purpendicular.jpg",
+      "musicbrainz_id": "ed6487db-873e-317b-9a72-6085b53ea966"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1973",
+    "precision": "year",
+    "title": "Who Do We Think We Are",
+    "description": "Who Do We Think We Are album released.",
+    "album": {
+      "title": "Who Do We Think We Are",
+      "cover": "assets/albums/WhoDoWeThinkWeAre.jpg",
+      "musicbrainz_id": "edba2b6f-8f50-3bc9-b2ac-1df8bdb51daa"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  },
+  {
+    "type": "album",
+    "date": "1990",
+    "precision": "year",
+    "title": "Slaves and Masters",
+    "description": "Slaves and Masters album released.",
+    "album": {
+      "title": "Slaves and Masters",
+      "cover": "assets/albums/SlavesandMasters.jpg",
+      "musicbrainz_id": "f00f78f4-f04c-3e38-9797-892c047f3a0a"
+    },
+    "location": {
+      "type": "birthplace",
+      "name": "Hertford, England",
+      "lat": 51.7965,
+      "lon": -0.0773
+    }
+  }
+]
