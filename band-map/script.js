@@ -11,8 +11,9 @@ const map = new mapboxgl.Map({
     zoom: 2
 });
 
-// Store marker DOM elements here (their corresponding Mapbox Marker objects are already on the map)
+// Store both the marker DOM and the mapbox marker object (for managing popup)
 let markerEls = [];
+let markerObjs = [];
 
 // Create all markers at once (hidden initially)
 bandEvents.forEach((event, index) => {
@@ -35,15 +36,21 @@ bandEvents.forEach((event, index) => {
     el.style.transition = "opacity 1s ease";
     el.style.cursor = "pointer";
 
-    // create and add marker to the map (we keep the element reference)
-    new mapboxgl.Marker(el)
+    // create popup
+    const popup = new mapboxgl.Popup().setHTML(
+        `<strong>${event.date}</strong><br>
+         <strong>${event.title || ""}</strong><br>
+         ${event.description || ""}`
+    );
+
+    // create and add marker (with popup just created) to the map (we keep the element reference)
+    marker = new mapboxgl.Marker(el)
         .setLngLat([event.location.lon, event.location.lat])
-        .setPopup(new mapboxgl.Popup().setHTML(
-        `<strong>${event.date}</strong><br><strong>${event.title || ""}</strong><br>${event.description || ""}`
-        ))
+        .setPopup(popup)
         .addTo(map);
 
     markerEls.push(el);
+    markerObjs.push(marker);
 });
 
 // Unified update function: fade previous out, fade new in
@@ -53,11 +60,13 @@ function renderMarkers(i) {
     if (lastIndex !== null) {
         markerEls[lastIndex].style.opacity = 0;
         markerEls[lastIndex].style.pointerEvents = "none"; // disable clicks
+        markerObjs[lastIndex].getPopup().remove();  // close popup
     }
 
     // Fade in current marker
     markerEls[i].style.opacity = 1;
     markerEls[i].style.pointerEvents = "auto"; // enable clicks
+    markerObjs[i].togglePopup(); // auto open popup
 
     lastIndex = i;
 }
