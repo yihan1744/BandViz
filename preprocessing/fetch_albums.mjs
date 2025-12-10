@@ -103,9 +103,9 @@ async function main() {
     const results = [];
     const failedCovers = []; // Keep track of failed downloads
 
-    // Ensure covers folder exists
-    const coverDir = path.join(process.cwd(), 'covers');
-    if (!fs.existsSync(coverDir)) fs.mkdirSync(coverDir);
+    // Edit the destination folder for saving cover images here:
+    const coverDir = path.join(process.cwd(), '../band-map/assets/albums');
+    if (!fs.existsSync(coverDir)) fs.mkdirSync(coverDir, { recursive: true });
 
     for (const album of albums) {
         const date = await fetchEarliestReleaseDate(album.id);
