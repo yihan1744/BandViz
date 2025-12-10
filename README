@@ -1,3 +1,4 @@
+前端：
 #timeline is a simple HTML slider.
 
 In script.js:
@@ -8,11 +9,7 @@ el.style.transition is the duration of fading
 
 new mapboxgl.Marker(el) is where we pass data to UI
 
-data structure:
-a band has 
-- logo (static)
-- a list of events
+后端: 
+data structure: see Band Events
+代码：preprocess_albums
 
-an event has:
-- time, location blahblahblah
-- members (optional)
