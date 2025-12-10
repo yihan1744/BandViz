@@ -1,3 +1,4 @@
+// Run with: node merge_events.mjs
 import fs from "fs";
 import path from "path";
 
