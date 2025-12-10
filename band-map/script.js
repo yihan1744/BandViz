@@ -51,7 +51,6 @@ async function InitMap(){
         el.style.cursor = "pointer";
 
         // create popup
-
         const popupContent = `
             ${event.type === "album" && event.album?.cover ? 
                 `<img src="${encodeURI(event.album.cover)}" alt="Cover" style="width:100px;height:auto;margin-bottom:5px;"><br>` 
@@ -60,18 +59,7 @@ async function InitMap(){
             <strong>${event.title || ""}</strong><br>
             ${event.description || ""}
         `;
-
-        console.log("Popup HTML for event", index, popupContent);
-        // ---- CHANGE: branch for album cover image test
-        if (event.type === "album" && event.album?.cover) {
-            const testImg = new Image();
-            testImg.onload = () => console.log("✔ Image FOUND:", event.album.cover);
-            testImg.onerror = () => console.warn("✘ Image NOT FOUND:", event.album.cover);
-            testImg.src = encodeURI(event.album.cover);
-        }
-
         const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent);
-
 
         // create and add marker (with popup just created) to the map (we keep the element reference)
         const marker = new mapboxgl.Marker(el)
