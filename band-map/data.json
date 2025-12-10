@@ -29,7 +29,7 @@
       "description": "Shades of Deep Purple album released.",
       "album": {
         "title": "Shades of Deep Purple",
-        "cover": "assets/albums/ShadesofDeepPurple.jpg",
+        "cover": "assets/albums/Shades_of_Deep_Purple.jpg",
         "musicbrainz_id": "bdb083d6-be5e-32b3-97df-3d899a8ff858"
       },
       "location": {
@@ -47,7 +47,7 @@
       "description": "The Book of Taliesyn album released.",
       "album": {
         "title": "The Book of Taliesyn",
-        "cover": "assets/albums/TheBookofTaliesyn.jpg",
+        "cover": "assets/albums/The_Book_of_Taliesyn.jpg",
         "musicbrainz_id": "3a2bbe30-d2c7-367b-9326-f0082adad661"
       },
       "location": {
@@ -65,7 +65,7 @@
       "description": "The Very Best of Deep Purple album released.",
       "album": {
         "title": "The Very Best of Deep Purple",
-        "cover": "assets/albums/TheVeryBestofDeepPurple.jpg",
+        "cover": "assets/albums/The_Very_Best_of_Deep_Purple.jpg",
         "musicbrainz_id": "4202aeb4-a8f5-4806-a4d5-0c91d9696267"
       },
       "location": {
@@ -126,7 +126,7 @@
       "description": "Deep Purple album released.",
       "album": {
         "title": "Deep Purple",
-        "cover": "assets/albums/DeepPurple.jpg",
+        "cover": "assets/albums/Deep_Purple.jpg",
         "musicbrainz_id": "bacc3ccf-32aa-3103-b50c-4edaa35e6fb6"
       },
       "location": {
@@ -144,7 +144,7 @@
       "description": "Battle of Deep Purple & Jimi Hendrix album released.",
       "album": {
         "title": "Battle of Deep Purple & Jimi Hendrix",
-        "cover": "assets/albums/BattleofDeepPurple&JimiHendrix.jpg",
+        "cover": "assets/albums/Battle_of_Deep_Purple_&_Jimi_Hendrix.jpg",
         "musicbrainz_id": "d7451c1d-f369-4762-aff9-33e4c3a36361"
       },
       "location": {
@@ -162,7 +162,7 @@
       "description": "Deep Purple in Rock album released.",
       "album": {
         "title": "Deep Purple in Rock",
-        "cover": "assets/albums/DeepPurpleinRock.jpg",
+        "cover": "assets/albums/Deep_Purple_in_Rock.jpg",
         "musicbrainz_id": "ebdb53c3-fbae-34b1-81cb-f825c9a56822"
       },
       "location": {
@@ -198,7 +198,7 @@
       "description": "Machine Head album released.",
       "album": {
         "title": "Machine Head",
-        "cover": "assets/albums/MachineHead.jpg",
+        "cover": "assets/albums/Machine_Head.jpg",
         "musicbrainz_id": "d00243c5-adcf-3018-9aa7-1957d7a5a774"
       },
       "location": {
@@ -216,7 +216,7 @@
       "description": "Who Do We Think We Are album released.",
       "album": {
         "title": "Who Do We Think We Are",
-        "cover": "assets/albums/WhoDoWeThinkWeAre.jpg",
+        "cover": "assets/albums/Who_Do_We_Think_We_Are.jpg",
         "musicbrainz_id": "edba2b6f-8f50-3bc9-b2ac-1df8bdb51daa"
       },
       "location": {
@@ -270,7 +270,7 @@
       "description": "Come Taste the Band album released.",
       "album": {
         "title": "Come Taste the Band",
-        "cover": "assets/albums/ComeTastetheBand.jpg",
+        "cover": "assets/albums/Come_Taste_the_Band.jpg",
         "musicbrainz_id": "d12f085d-7861-36cd-a2fb-55a18ddc6e56"
       },
       "location": {
@@ -314,7 +314,7 @@
       "description": "Perfect Strangers album released.",
       "album": {
         "title": "Perfect Strangers",
-        "cover": "assets/albums/PerfectStrangers.jpg",
+        "cover": "assets/albums/Perfect_Strangers.jpg",
         "musicbrainz_id": "41a276ce-ea2b-377c-9ad8-0ef0bfd1f5c2"
       },
       "location": {
@@ -332,7 +332,7 @@
       "description": "The House of Blue Light album released.",
       "album": {
         "title": "The House of Blue Light",
-        "cover": "assets/albums/TheHouseofBlueLight.jpg",
+        "cover": "assets/albums/The_House_of_Blue_Light.jpg",
         "musicbrainz_id": "3627b95b-c892-3c42-bbf6-d203ef6ffe6b"
       },
       "location": {
@@ -350,7 +350,7 @@
       "description": "Slaves and Masters album released.",
       "album": {
         "title": "Slaves and Masters",
-        "cover": "assets/albums/SlavesandMasters.jpg",
+        "cover": "assets/albums/Slaves_and_Masters.jpg",
         "musicbrainz_id": "f00f78f4-f04c-3e38-9797-892c047f3a0a"
       },
       "location": {
@@ -368,7 +368,7 @@
       "description": "The Battle Rages On… album released.",
       "album": {
         "title": "The Battle Rages On…",
-        "cover": "assets/albums/TheBattleRagesOn….jpg",
+        "cover": "assets/albums/The_Battle_Rages_On_.jpg",
         "musicbrainz_id": "4859ab03-71a1-3217-93ec-df15dca6e2e3"
       },
       "location": {
@@ -440,7 +440,7 @@
       "description": "Rapture of the Deep album released.",
       "album": {
         "title": "Rapture of the Deep",
-        "cover": "assets/albums/RaptureoftheDeep.jpg",
+        "cover": "assets/albums/Rapture_of_the_Deep.jpg",
         "musicbrainz_id": "47b949bf-dc12-3b49-9f31-f1176577d7d1"
       },
       "location": {
@@ -458,7 +458,7 @@
       "description": "Now What?! album released.",
       "album": {
         "title": "Now What?!",
-        "cover": "assets/albums/NowWhat?!.jpg",
+        "cover": "assets/albums/Now_What__.jpg",
         "musicbrainz_id": "83afd89b-8746-4ff5-b1f4-aa64863de85e"
       },
       "location": {
@@ -494,7 +494,7 @@
       "description": "Whoosh! album released.",
       "album": {
         "title": "Whoosh!",
-        "cover": "assets/albums/Whoosh!.jpg",
+        "cover": "assets/albums/Whoosh_.jpg",
         "musicbrainz_id": "dd3a44e9-8dc3-4803-8392-62452672fabe"
       },
       "location": {
@@ -512,7 +512,7 @@
       "description": "Turning to Crime album released.",
       "album": {
         "title": "Turning to Crime",
-        "cover": "assets/albums/TurningtoCrime.jpg",
+        "cover": "assets/albums/Turning_to_Crime.jpg",
         "musicbrainz_id": "09e40d7f-d1ee-42b1-85fd-5a852dd21c08"
       },
       "location": {

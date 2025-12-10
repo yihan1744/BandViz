@@ -1,3 +1,4 @@
+// transform_albums.mjs
 // Run with: node transform_albums.mjs
 import fs from "fs";
 
@@ -15,6 +16,18 @@ const outputPath = `./${bandName.replace(" ", "_")}_album_events.json`;
 
 const rawAlbums = JSON.parse(fs.readFileSync(inputPath));
 
+function extractRelativeCoverPath(fullPath) {
+  if (!fullPath) return null; // cover missing
+  
+  // Normalize and split
+  const idx = fullPath.indexOf("assets/");
+  if (idx === -1) {
+    console.warn("WARNING: cover path does not contain 'assets/':", fullPath);
+    return fullPath; // fallback
+  }
+  return fullPath.slice(idx); // return from "assets/..."
+}
+
 const transformed = rawAlbums.map(a => ({
   type: "album",
   date: a.date,
@@ -23,7 +36,7 @@ const transformed = rawAlbums.map(a => ({
   description: `${a.title} album released.`,
   album: {
     title: a.title,
-    cover: `assets/albums/${a.title.replace(/\s+/g, '')}.jpg`,
+    cover: extractRelativeCoverPath(a.cover),
     musicbrainz_id: a.musicbrainz_id
   },
   location: {

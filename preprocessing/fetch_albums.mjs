@@ -1,4 +1,5 @@
-//Run with: NODE_TLS_REJECT_UNAUTHORIZED=0 node fetch_albums.mjs "Deep Purple"
+// fetch_albums.mjs
+// Run with: NODE_TLS_REJECT_UNAUTHORIZED=0 node fetch_albums.mjs "Deep Purple"
 
 import fs from "fs";
 import fetch from "node-fetch"; 
@@ -6,6 +7,8 @@ import path from "path";
 import { HttpsProxyAgent } from "https-proxy-agent";
 
 const USER_AGENT = 'BandViz/1.0 ( your-email@example.com )';
+
+const maxRetries = 3;
 
 // ClashVerge proxy
 const proxy = 'http://127.0.0.1:7897';
@@ -35,23 +38,33 @@ async function fetchAlbums(mbid) {
     return data['release-groups'] || [];
 }
 
-async function fetchEarliestReleaseDate(releaseGroupId) {
-    const url = `https://musicbrainz.org/ws/2/release?release-group=${releaseGroupId}&fmt=json&limit=100`;
-    const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
-    const data = await res.json();
-    const releases = data.releases || [];
+async function fetchEarliestReleaseDate(releaseGroupId, albumTitle) {
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+        try {
+            const url = `https://musicbrainz.org/ws/2/release?release-group=${releaseGroupId}&fmt=json&limit=100`;
+            const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            const releases = data.releases || [];
 
-    // Filter out releases without a date
-    const releasesWithDate = releases.filter(r => r.date);
+            const releasesWithDate = releases.filter(r => r.date);
+            if (releasesWithDate.length === 0) return null;
 
-    if (releasesWithDate.length === 0) return null;
+            releasesWithDate.sort((a, b) => a.date.localeCompare(b.date));
+            return releasesWithDate[0].date;
 
-    // Find the earliest date
-    releasesWithDate.sort((a, b) => a.date.localeCompare(b.date));
-    return releasesWithDate[0].date;
+        } catch (err) {
+            console.warn(`Attempt ${attempt} failed for date of "${albumTitle}": ${err.message}`);
+            if (attempt < maxRetries) await new Promise(res => setTimeout(res, 2000));
+        }
+    }
+
+    console.error(`Failed to fetch date for "${albumTitle}" after ${maxRetries} attempts`);
+    return null; // do not throw, just return null
 }
 
-async function downloadCover(releaseGroupId, destPath, albumTitle, maxRetries = 3) {
+
+async function downloadCover(releaseGroupId, destPath, albumTitle) {
     if (fs.existsSync(destPath)) return true; // Skip if already downloaded
 
     const metaUrl = `https://coverartarchive.org/release-group/${releaseGroupId}`;
@@ -101,14 +114,20 @@ async function main() {
 
     const albums = await fetchAlbums(artist.id);
     const results = [];
-    const failedCovers = []; // Keep track of failed downloads
+
+    // Keep track of failed downloads
+    const failedDates = [];
+    const failedCovers = []; 
 
     // Edit the destination folder for saving cover images here:
     const coverDir = path.join(process.cwd(), '../band-map/assets/albums');
     if (!fs.existsSync(coverDir)) fs.mkdirSync(coverDir, { recursive: true });
 
     for (const album of albums) {
+        // Try to download date
         const date = await fetchEarliestReleaseDate(album.id);
+        if (!date) failedDates.push({ title: album.title, id: album.id });
+
         const output = {
             title: album.title,
             musicbrainz_id: album.id,
@@ -117,11 +136,13 @@ async function main() {
         };
 
         // Try to download cover
-        const safeName = album.title.replace(/[\/\\?%*:|"<>]/g, '_');
+        const safeName = album.title
+            .replace(/[\/\\?%*:|"<>…!]/g, '_')  // replace special characters
+            .replace(/\s+/g, '_');               // replace spaces with underscores
         const dest = path.join(coverDir, safeName + '.jpg');
         const ok = await downloadCover(album.id, dest, safeName);
         if (ok) {
-        output.cover = dest;
+            output.cover = dest;
         } else {
             failedCovers.push({ title: album.title, id: album.id });
         }
@@ -135,6 +156,11 @@ async function main() {
     console.log("Saved:", outputPath);
 
     // Summary of failed downloads
+    if (failedDates.length > 0) {
+        console.log("\n==== SUMMARY: Failed Date Downloads ====");
+        failedDates.forEach(f => console.log(`- "${f.title}" (${f.id})`));
+        console.log("========================================\n");
+    }
     if (failedCovers.length > 0) {
         console.log("\n==== SUMMARY: Failed Cover Downloads ====");
         failedCovers.forEach(f => {

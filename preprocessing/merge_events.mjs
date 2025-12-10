@@ -19,15 +19,26 @@ try {
     data.bandEvents = [];
   }
 
-  // Merge album events into bandEvents
-  data.bandEvents.push(...albumEvents);
-
-  // Optionally, sort events by date (earliest first)
-  data.bandEvents.sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-    return dateA - dateB;
+  // Build a map for existing events by title for quick lookup
+  const existingEventsMap = new Map();
+  data.bandEvents.forEach((event, index) => {
+    existingEventsMap.set(event.title, index);
   });
+
+  // Merge album events
+  for (const albumEvent of albumEvents) {
+    if (existingEventsMap.has(albumEvent.title)) {
+      // Replace existing event
+      const index = existingEventsMap.get(albumEvent.title);
+      data.bandEvents[index] = albumEvent;
+    } else {
+      // Append new event
+      data.bandEvents.push(albumEvent);
+    }
+  }
+
+  // Sort events by date (earliest first)
+  data.bandEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   // Write back the updated data.json
   fs.writeFileSync(dataJsonPath, JSON.stringify(data, null, 2), "utf-8");
