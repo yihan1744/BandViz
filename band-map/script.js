@@ -1,7 +1,21 @@
 console.log("script.js loaded");
+
+let bandLogo;
+let bandEvents;
+
+async function loadData() {
+  const response = await fetch('./data.json');
+  const data = await response.json();
+
+  bandLogo = data.bandLogo;
+  bandEvents = data.bandEvents;
+
+  console.log('bandLogo:', bandLogo);
+  console.log('bandEvents:', bandEvents);
+}
+
+await loadData();
 console.log("bandEvents =", bandEvents);
-
-
 
 mapboxgl.accessToken = MAPBOX_TOKEN; 
 const map = new mapboxgl.Map({
@@ -44,7 +58,7 @@ bandEvents.forEach((event, index) => {
     );
 
     // create and add marker (with popup just created) to the map (we keep the element reference)
-    marker = new mapboxgl.Marker(el)
+    const marker = new mapboxgl.Marker(el)
         .setLngLat([event.location.lon, event.location.lat])
         .setPopup(popup)
         .addTo(map);
