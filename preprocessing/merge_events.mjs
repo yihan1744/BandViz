@@ -19,18 +19,16 @@ try {
     data.bandEvents = [];
   }
 
-  // Build a map for existing events by title for quick lookup
-  const existingEventsMap = new Map();
-  data.bandEvents.forEach((event, index) => {
-    existingEventsMap.set(event.title, index);
-  });
-
   // Merge album events
   for (const albumEvent of albumEvents) {
-    if (existingEventsMap.has(albumEvent.title)) {
-      // Replace existing event
-      const index = existingEventsMap.get(albumEvent.title);
-      data.bandEvents[index] = albumEvent;
+    // Look for existing event with same title AND type 'album'
+    const existingIndex = data.bandEvents.findIndex(
+      e => e.title === albumEvent.title && e.type === 'album'
+    );
+
+    if (existingIndex !== -1) {
+      // Replace only if type==='album' and title matches
+      data.bandEvents[existingIndex] = albumEvent;
     } else {
       // Append new event
       data.bandEvents.push(albumEvent);
