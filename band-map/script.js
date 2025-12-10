@@ -45,7 +45,8 @@ async function InitMap(){
         el.src = bandLogo; 
         el.className = "event-marker";
 
-        el.style.opacity = 0;          
+        el.style.display = 'none';    
+        el.style.opacity = 0;     
         el.style.transition = "opacity 1s ease";
         el.style.cursor = "pointer";
 
@@ -77,6 +78,7 @@ async function InitMap(){
         }
 
         // Fade in current marker
+        markerEls[i].style.display = 'block';
         markerEls[i].style.opacity = 1;
         markerEls[i].style.pointerEvents = "auto"; // enable clicks
         markerObjs[i].togglePopup(); // auto open popup
